@@ -71,8 +71,8 @@ NODE* deleteNode(NODE* root, int id) {
         root->left = deleteNode(root->left, id);
     } else if (id > root->data.id) {
         root->right = deleteNode(root->right, id);
-    } else {
-        // Node with only one child or no child
+    } 
+    else {
         if (root->left == NULL) {
             NODE* temp = root->right;
             free(root);
@@ -82,15 +82,8 @@ NODE* deleteNode(NODE* root, int id) {
             free(root);
             return temp;
         }
-
-        // Node with two children: Get the inorder successor (smallest
-        // in the right subtree)
         NODE* temp = findMinNode(root->right);
-
-        // Copy the inorder successor's data to this node
         root->data = temp->data;
-
-        // Delete the inorder successor
         root->right = deleteNode(root->right, temp->data.id);
     }
     return root;
