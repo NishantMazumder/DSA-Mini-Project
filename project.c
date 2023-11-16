@@ -200,11 +200,12 @@ int main() {
             }
             break;
         
-        case 2://delete student
-        printf("Enter student ID: ");
-        scanf("%d",&id);
-        deleteNode(root,id);
-        break;
+        case 2: // delete student
+            printf("Enter student ID: ");
+            scanf("%d", &id);
+            root = deleteNode(root, id);
+            break;
+
 
         case 3://search student 
             printf("Enter student ID: ");
